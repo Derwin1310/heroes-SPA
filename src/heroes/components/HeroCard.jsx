@@ -14,7 +14,7 @@ export const HeroCard = ({
 	const heroURL = `/assets/heroes/${id}.jpg`
 
 	return (
-		<div className='col'>
+		<div className='col animate__animated animate__fadeIn'>
 			<div className='card'>
 				<div className='row no-gutters'>
 					<div className='col-4'>
@@ -32,7 +32,7 @@ export const HeroCard = ({
 								<small className='text-muted'>{first_appearance}</small>
 							</p>
 
-							<Link to={`/hero/` + id}>More...</Link>
+							<Link to={`/hero/${id}`}>More...</Link>
 						</div>
 					</div>
 				</div>

@@ -17,7 +17,7 @@ export const HeroesRoutes = () => {
 			element: <Searcher />,
 		},
 		{
-			path: 'hero',
+			path: 'hero/:id',
 			element: <Hero />,
 		},
 		{
