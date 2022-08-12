@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Navbar } from '../../ui'
 import { DC, Hero, Marvel, Searcher } from '../pages'
+import '../styles.sass'
 
 export const HeroesRoutes = () => {
 	const routs = [
@@ -30,13 +31,13 @@ export const HeroesRoutes = () => {
 		<>
 			<Navbar />
 
-			<div className='container'>
+			<section className='container'>
 				<Routes>
 					{routs.map(({ path, element }) => (
 						<Route key={path} path={path} element={element} />
 					))}
 				</Routes>
-			</div>
+			</section>
 		</>
 	)
 }

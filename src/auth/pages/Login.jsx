@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
+import '../styles.sass'
 
 export const Login = () => {
 	const { login } = useContext(AuthContext)
@@ -17,12 +18,14 @@ export const Login = () => {
 		})
 	}
 
+	const animation = 'animate__animated animate__fadeIn'
+
 	return (
-		<div className='container mt-5'>
-			<h1>Login</h1>
+		<div className={`login ${animation}`}>
+			<h1 className='login__tittle'>Login</h1>
 			<hr />
 
-			<button className='btn btn-primary' onClick={onLogin}>
+			<button className='login__btn' onClick={onLogin}>
 				Login
 			</button>
 		</div>

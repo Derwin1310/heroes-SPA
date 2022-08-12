@@ -1,0 +1,60 @@
+.navbar
+  max-width: 100%
+  background-color: #3c3c3c
+  display: flex
+  padding: .5rem 2rem
+  justify-content: space-between
+  align-items: center
+  font-weight: 600
+  position: sticky
+  top: 0
+  z-index: 100
+
+  &__wrapper
+    display: flex
+    gap: 1rem
+
+  &__links
+    color: #d3d3d3
+    text-decoration: none
+    transition: color .3s
+
+  &__log
+    @extend .navbar__wrapper
+    align-items: center
+
+    &__user
+      color: #55afff
+
+    &__btn
+      font-weight: 600
+      color: #d3d3d3
+      padding: .5rem 1rem
+      border-radius: 8px
+      border: 2px solid #55afff
+      background-color: #55afff55
+      transition: all .3s
+
+      &:hover
+        background-color: #55afffaa
+        color: #fff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.active
+  color: #f3f3f3

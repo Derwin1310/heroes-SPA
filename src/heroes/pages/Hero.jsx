@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { getHeroById } from "../helpers"
 
 export const Hero = () => {
+  const animation = 'animate__animated animate__fadeIn'
   const navigate = useNavigate()
   const { id } = useParams()
 
@@ -18,34 +19,31 @@ export const Hero = () => {
     alter_ego,
     first_appearance,
     characters } = hero
-  // console.log(hero);
 
   return (
-    <div className="row mt-5 animate__animated animate__fadeInLeft">
-      <div className="col-4">
+    <div className={`card-wrapper ${animation}`}>
         <img
           src={`/assets/heroes/${id}.jpg`}
           alt={superhero}
-          className="img-thumbnail"
+          className="card-wrapper__img"
         />
-      </div>
 
-      <div className="col-8">
-        <h3>{superhero}</h3>
-        <ul className="list-grouo ligt-group-flush">
-          <li className="list-group-item"><b>Alter ego:</b> {alter_ego}</li>
-          <li className="list-group-item"><b>Publisher:</b> {publisher}</li>
-          <li className="list-group-item"><b>First appearance:</b> {first_appearance}</li>
+      <div className="card-wrapper__desc">
+        <h3 className="card-wrapper__title">{superhero}</h3>
+        <ul className="list-desc">
+          <li className="list-desc__item"><b>Alter ego:</b> {alter_ego}</li>
+          <li className="list-desc__item"><b>Publisher:</b> {publisher}</li>
+          <li className="list-desc__item"><b>First appearance:</b> {first_appearance}</li>
+          <li className="list-desc__item"><b>Characters</b>: {characters}</li>
         </ul>
-
-        <h5 className="mt-3">Characters</h5>
-        <p>{characters}</p>
 
         <button
           onClick={onNavigateBack}
-          className="btn btn-outline-primary">Back</button>
+          className="card-wrapper__btn"
+        >
+          Go Back
+        </button>
       </div>
-
     </div>
   )
 }

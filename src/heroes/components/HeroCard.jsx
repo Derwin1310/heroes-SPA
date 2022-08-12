@@ -1,41 +1,20 @@
 import { Link } from 'react-router-dom'
 
-const CharactersByHero = ({ alter_ego, characters }) =>
-	alter_ego === characters ? <></> : <p>{characters}</p>
-
-export const HeroCard = ({
-	id,
-	superhero,
-	publisher,
-	alter_ego,
-	first_appearance,
-	characters,
-}) => {
+export const HeroCard = ({ id, superhero, alter_ego, first_appearance }) => {
 	const heroURL = `/assets/heroes/${id}.jpg`
+	const animation = 'animate__animated animate__fadeIn'
 
 	return (
-		<div className='col animate__animated animate__fadeIn'>
-			<div className='card'>
-				<div className='row no-gutters'>
-					<div className='col-4'>
-						<img src={heroURL} alt={superhero} className='card-img' />
-					</div>
+		<div className={`card ${animation}`}>
+			<img src={heroURL} alt={superhero} className='card__img' />
 
-					<div className='col-8'>
-						<div className='card-body'>
-							<h5 className='card-title'>{superhero}</h5>
-							<p className='card-text'>{alter_ego}</p>
-
-							<CharactersByHero alter_ego={alter_ego} characters={characters} />
-
-							<p className='card-text'>
-								<small className='text-muted'>{first_appearance}</small>
-							</p>
-
-							<Link to={`/hero/${id}`}>More...</Link>
-						</div>
-					</div>
-				</div>
+			<div className='card__desc'>
+				<h2 className='card__desc__name'>{superhero}</h2>
+				<h3 className='card__desc__alter-ego'>{alter_ego}</h3>
+				<h4 className='card-text'>{first_appearance}</h4>
+				<Link className='card__desc__link' to={`/hero/${id}`}>
+					More...
+				</Link>
 			</div>
 		</div>
 	)

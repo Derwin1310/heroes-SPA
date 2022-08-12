@@ -24,52 +24,44 @@ export const Searcher = () => {
     if (searchText.trim().length <= 1) return;
 
     navigate(`?q=${searchText}`)
-    console.log({searchText})
   }
 
 	return (
 		<>
-			<h1>Searcher</h1>
+			<h1 className="title">Searcher</h1>
 			<hr />
 
-			<div className='row'>
-				<div className='col-5'>
-					<h4>Searching</h4>
-					<hr />
+			<div className='search-page'>
+				<div className='form-wrapper'>
+					<h2 className='form-wrapper__title'>Searching</h2>
 
-					<form>
+					<form className="form">
 						<input
 							type='text'
 							name='searchText'
-							className='form-control'
+							className='form__searcher'
 							autoComplete='off'
               value={searchText}
               onChange={onInputChange}
               placeholder="Search a hero"
 						/>
 
-						<button onClick={onSearchSubmit} className='btn btn-outline-primary mt-1'>Search</button>
+						<button onClick={onSearchSubmit} className='form__btn'>Search</button>
 					</form>
 				</div>
 
-				<div className='col-7'>
-					<h4>Results</h4>
-					<hr />
+				<div className='results-wrapper'>
+					<h2 className="results-wrapper__title">Results</h2>
 
-					<div className='alert alert-primary' style={{display: showSearch ? '' : 'none'}}>
-            Search a hero
-          </div>
+					<p className='results-wrapper__search-msg' style={{display: showSearch ? '' : 'none'}}>
+            Looking for a Superhero? Let's go!
+          </p>
 
-					<div className='alert alert-danger' style={{display: showError ? '' : 'none'}}>
-            No hero with <b>{q}</b>
-          </div>
+					<p className='results-wrapper__error-msg' style={{display: showError ? '' : 'none'}}>
+            No hero named {q}
+          </p>
+        	{heroes.map(hero => <HeroCard key={hero.id} {...hero} />)}
 				</div>
-
-        {
-          heroes.map(hero => <HeroCard key={hero.id} {...hero} />)
-        }
-
-        {/* <HeroCard /> */}
 			</div>
 		</>
 	)

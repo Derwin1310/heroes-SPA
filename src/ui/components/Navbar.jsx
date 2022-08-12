@@ -1,35 +1,12 @@
 import { useContext } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../auth/context/AuthContext'
+import { NavLinks } from './NavLinks'
+import '../styles.sass'
 
 export const Navbar = () => {
 	const { user, logout } = useContext(AuthContext)
 	const navigate = useNavigate()
-
-	const defaultClass = 'nav-item nav-link'
-
-	const navLinks = [
-		{
-			name: 'Marvel',
-			styles: defaultClass,
-			path: '/marvel',
-		},
-		{
-			name: 'DC',
-			styles: defaultClass,
-			path: '/dc',
-		},
-		{
-			name: 'Searcher',
-			styles: defaultClass,
-			path: '/searcher',
-		},
-		{
-			name: 'Hero',
-			styles: defaultClass,
-			path: '/hero',
-		},
-	]
 
 	const onLogout = () => {
 		logout()
@@ -39,27 +16,19 @@ export const Navbar = () => {
 	}
 
 	return (
-		<nav className='navbar navbar-expand-sm navbar-dark bg-dark p-2'>
-			<Link className='navbar-brand' to='/'>
+		<nav className='navbar'>
+			{/* <Link className='' to='/'>
 				Asociaciones
-			</Link>
+			</Link> */}
 
-			<div className='navbar-collapse'>
-				<div className='navbar-nav'>
-					{navLinks.map(({ name, styles, path }) => (
-						<NavLink key={name} className={styles} to={path}>
-							{name}
-						</NavLink>
-					))}
-				</div>
-			</div>
+			<NavLinks />
 
-			<div className='navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end'>
-				<ul className='navbar-nav ml-auto'>
-					<span className='nav-item nav-link text-primary'>{user?.name}</span>
+			<div className='navbar__log'>
+				<p className='navbar__log__user'>{user?.name}</p>
 
-					<button onClick={onLogout} className='nav-item nav-link btn'>Log out</button>
-				</ul>
+				<button onClick={onLogout} className='navbar__log__btn'>
+					Log out
+				</button>
 			</div>
 		</nav>
 	)
