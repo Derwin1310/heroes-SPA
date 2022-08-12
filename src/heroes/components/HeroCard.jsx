@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 export const HeroCard = ({ id, superhero, alter_ego, first_appearance }) => {
-	const heroURL = `/assets/heroes/${id}.jpg`
+	const heroURL = `/assets/${id}.jpg`
 	const animation = 'animate__animated animate__fadeIn'
 
 	return (

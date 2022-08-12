@@ -23,7 +23,7 @@ export const Hero = () => {
   return (
     <div className={`card-wrapper ${animation}`}>
         <img
-          src={`/assets/heroes/${id}.jpg`}
+          src={`/assets/${id}.jpg`}
           alt={superhero}
           className="card-wrapper__img"
         />
